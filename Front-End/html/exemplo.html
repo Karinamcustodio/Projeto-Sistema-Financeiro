@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Notas Fiscais</title>
+    <style>
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .filters {
+        margin-bottom: 20px;
+      }
+
+      .notes-list {
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lista de Notas Fiscais</h1>
+      <div class="filters">
+        <label for="monthIssued">Filtrar por mês de emissão:</label>
+        <input type="month" id="monthIssued" />
+
+        <label for="monthBilled">Filtrar por mês de cobrança:</label>
+        <input type="month" id="monthBilled" />
+
+        <label for="monthPaid">Filtrar por mês de pagamento:</label>
+        <input type="month" id="monthPaid" />
+
+        <label for="status">Filtrar por status:</label>
+        <select id="status">
+          <option value="">Todos</option>
+          <option value="emitida">Emitida</option>
+          <option value="cobranca_realizada">Cobrança Realizada</option>
+          <option value="pagamento_atraso">Pagamento em Atraso</option>
+          <option value="pagamento_realizado">Pagamento Realizado</option>
+        </select>
+      </div>
+      <div class="notes-list" id="notesList">
+        <!-- Aqui será preenchido dinamicamente com as notas -->
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Simulação de dados de notas fiscais
+        const notasFiscais = [
+          {
+            pagador: "Empresa A",
+            identificacao: "001",
+            emissao: "2024-01-01",
+            cobranca: "2024-01-15",
+            pagamento: "2024-01-25",
+            valor: "1000.00",
+            documento: "ABC123",
+            boleto: "XYZ456",
+            status: "emitida",
+          },
+          {
+            pagador: "Empresa B",
+            identificacao: "002",
+            emissao: "2024-01-10",
+            cobranca: "2024-01-25",
+            pagamento: "2024-02-05",
+            valor: "1500.00",
+            documento: "DEF456",
+            boleto: "LMN789",
+            status: "pagamento_realizado",
+          },
+          // Mais dados de notas fiscais aqui...
+        ];
+
+        const notesList = document.getElementById("notesList");
+
+        // Função para atualizar a lista de notas fiscais
+        function updateNotesList() {
+          // Limpa a lista antes de preencher
+          notesList.innerHTML = "";
+
+          // Filtrar notas fiscais com base nos filtros selecionados
+          const filteredNotas = notasFiscais.filter((nota) => {
+            const monthIssued = document.getElementById("monthIssued").value;
+            const monthBilled = document.getElementById("monthBilled").value;
+            const monthPaid = document.getElementById("monthPaid").value;
+            const status = document.getElementById("status").value;
+
+            if (monthIssued && nota.emissao !== monthIssued) return false;
+            if (monthBilled && nota.cobranca !== monthBilled) return false;
+            if (monthPaid && nota.pagamento !== monthPaid) return false;
+            if (status && nota.status !== status) return false;
+
+            return true;
+          });
+
+          // Preencher a lista com as notas filtradas
+          filteredNotas.forEach((nota) => {
+            const listItem = document.createElement("div");
+            listItem.innerHTML = `
+        <h3>${nota.pagador} - ${nota.identificacao}</h3>
+        <p>Data de Emissão: ${nota.emissao}</p>
+        <p>Data da Cobrança: ${nota.cobranca}</p>
+        <p>Data do Pagamento: ${nota.pagamento}</p>
+        <p>Valor: ${nota.valor}</p>
+        <p>Status: ${nota.status}</p>
+        <p>Documento Fiscal: ${nota.documento}</p>
+        <p>Boleto Bancário: ${nota.boleto}</p>
+      `;
+            notesList.appendChild(listItem);
+          });
+        }
+
+        // Atualizar a lista de notas fiscais ao alterar os filtros
+        document
+          .querySelectorAll(".filters input, .filters select")
+          .forEach((element) => {
+            element.addEventListener("change", updateNotesList);
+          });
+
+        // Atualizar a lista de notas fiscais ao carregar a página
+        updateNotesList();
+      });
+    </script>
+  </body>
+</html>

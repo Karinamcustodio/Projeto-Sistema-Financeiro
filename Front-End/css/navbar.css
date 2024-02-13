@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  position: relative;
+  width: calc(100% - 215px);
+  min-width: 535px;
+  left: 215px;
+  height: 50px;
+  background: var(--cor-texto-branco);
+  justify-content: space-between;
+  padding: 7px;
+}
+.navbar-titulo-pagina {
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-left: 10px;
+}
+.nome-titulo {
+  margin-left: 10px;
+}
+.navbar-pesquisa {
+  display: flex;
+  position: relative;
+}
+#pesquisar {
+  border-radius: 25px;
+  border: 1px solid var(--cor-campo-pesquisa);
+  padding: 8px 30px 8px 40px;
+}
+.bi-search {
+  position: absolute;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 10px 8px 8px 15px;
+  transform: scaleX(-1);
+  color: var(--cor-campo-pesquisa);
+}
+#pesquisar:focus {
+  outline: none;
+}
+#foto-perfil {
+  border-radius: 50%;
+  border: none;
+}
+.navbar-usuario {
+  display: flex;
+}
+.titulo-usuario {
+  margin: 0 10px;
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/sidebar.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo-empresa">
+        <h3 class="nome-empresa">UneCont</h3>
+      </div>
+
+      <div class="conteudo-sidebar">
+        <div id="dashboard" class="sidebar-links">
+          <i class="bi bi-bar-chart-line"></i>
+          <a href="dashboard.html">Dashboard</a>
+        </div>
+        <div class="sidebar-links">
+          <i class="bi bi-people"></i>
+          <a href="">Customers</a>
+        </div>
+        <div class="sidebar-links">
+          <i class="bi bi-journal-text"></i>
+          <a href="">Projects</a>
+        </div>
+        <div class="sidebar-links">
+          <i class="bi bi-pencil-square"></i>
+          <a href="">Orders</a>
+        </div>
+        <div class="sidebar-links">
+          <i class="bi bi-archive"></i>
+          <a href="notasFiscais">Inventory</a>
+        </div>
+        <div class="sidebar-links">
+          <i class="bi bi-person"></i>
+          <a href="">Accounts</a>
+        </div>
+        <div class="sidebar-links">
+          <i class="bi bi-clipboard-check"></i>
+          <a href="">Tasks</a>
+        </div>
+        <div class="sidebar-highlight"></div>
+      </div>
+    </aside>
+
+    <header class="navbar">
+      <div class="navbar-titulo-pagina">
+        <i class="bi bi-bar-chart-line"></i>
+        <h3 class="nome-titulo">Dashboard</h3>
+      </div>
+
+      <div class="navbar-pesquisa">
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <input
+          type="text"
+          id="pesquisar"
+          name="pesquisar"
+          placeholder="search here"
+        />
+      </div>
+
+      <div class="navbar-usuario">
+        <img
+          id="foto-perfil"
+          src="../img/foto-perfil.png"
+          width="37px"
+          alt="Foto perfil"
+        />
+        <div class="titulo-usuario">
+          <h4>John Doe</h4>
+          <span>Super admin</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="dashboard-filtro">
+        <label id="filtrar-por" for="filtro">Filtrar por:</label>
+
+        <div class="filtro-mes-trimestre">
+          <div class="filtro-mes">
+            <label id="filtrar-por" for="filtro-mes">Mês:</label>
+            <div class="mes" onclick="selectMonth(this)">Jan</div>
+            <div class="mes" onclick="selectMonth(this)">Fev</div>
+            <div class="mes" onclick="selectMonth(this)">Mar</div>
+            <div class="mes" onclick="selectMonth(this)">Abr</div>
+            <div class="mes" onclick="selectMonth(this)">Mai</div>
+            <div class="mes" onclick="selectMonth(this)">Jun</div>
+            <div class="mes" onclick="selectMonth(this)">Jul</div>
+            <div class="mes" onclick="selectMonth(this)">Ago</div>
+            <div class="mes" onclick="selectMonth(this)">Set</div>
+            <div class="mes" onclick="selectMonth(this)">Out</div>
+            <div class="mes" onclick="selectMonth(this)">Nov</div>
+            <div class="mes" onclick="selectMonth(this)">Dez</div>
+          </div>
+
+          <div class="filtro-trimestre">
+            <label id="filtrar-por" for="filtro-trimestre">Trimestre:</label>
+            <div class="trimestre" onclick="selectTrimestre(this)">
+              Jan / Fev / Mar
+            </div>
+            <div class="trimestre" onclick="selectTrimestre(this)">
+              Abr / Mai / Jun
+            </div>
+            <div class="trimestre" onclick="selectTrimestre(this)">
+              Jul / Ago / Set
+            </div>
+            <div class="trimestre" onclick="selectTrimestre(this)">
+              Out / Nov / Dez
+            </div>
+          </div>
+        </div>
+
+        <div class="filtro-ano">
+          <label id="filtrar-por" for="filtro-ano">Ano:</label>
+          <select class="ano" onchange="selectYear(this)">
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="dashboard-indicadores">
+        <div id="dashboard-cards">
+          <div class="indicador-cards">
+            <div class="titulo-cards">
+              <i class="bi bi-card-text"></i>
+              <h4 class="nome-titulo">Notas Emitidas</h4>
+            </div>
+            <div class="valor-cards">
+              <h4>Total:</h4>
+              <h2 id="total-notas-emitidas">0.00</h2>
+            </div>
+          </div>
+
+          <div class="indicador-cards">
+            <div class="titulo-cards">
+              <i class="bi bi-card-text"></i>
+              <h4 class="nome-titulo">Notas Emitidas</h4>
+            </div>
+            <span>sem cobrança</span>
+            <div class="valor-cards">
+              <h4>Total:</h4>
+              <h2 id="total-notas-sem-cobranca">0.00</h2>
+            </div>
+          </div>
+
+          <div class="indicador-cards">
+            <div class="titulo-cards">
+              <i class="bi bi-card-text"></i>
+              <h4 class="nome-titulo">Notas Vencidas</h4>
+            </div>
+            <div class="valor-cards">
+              <h4>Total:</h4>
+              <h2 id="total-notas-vencidas">0.00</h2>
+            </div>
+          </div>
+
+          <div class="indicador-cards">
+            <div class="titulo-cards">
+              <i class="bi bi-card-text"></i>
+              <h4 class="nome-titulo">Notas a Vencer</h4>
+            </div>
+            <div class="valor-cards">
+              <h4>Total:</h4>
+              <h2 id="total-notas-a-vencer">0.00</h2>
+            </div>
+          </div>
+
+          <div class="indicador-cards">
+            <div class="titulo-cards">
+              <i class="bi bi-card-text"></i>
+              <h4 class="nome-titulo">Notas Pagas</h4>
+            </div>
+            <div class="valor-cards">
+              <h4>Total:</h4>
+              <h2 id="total-notas-pagas">0.00</h2>
+            </div>
+          </div>
+        </div>
+
+        <div id="dashboard-graficos">
+          <div class="espaco-graficos">
+            <span class="texto-grafico">Valores em mil R$</span>
+            <div class="grafico-pizza">
+              <p class="">Filtro por: Mês Jan</p>
+              <canvas id="chart-pizza"></canvas>
+            </div>
+          </div>
+
+          <div class="espaco-graficos">
+            <span class="texto-grafico">Valores em mil R$</span>
+            <div class="grafico-barra">
+              <canvas id="chart-barra"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script id="filtro-mes-trimestre-ano">
+      let selectedMonth = null; // Variável para armazenar o mês selecionado
+      let selectedTrimestre = null; // Variável para armazenar o trimestre selecionado
+      let selectedYear = null; // Variável para armazenar o ano selecionado
+
+      function selectMonth(monthElement) {
+        const month = monthElement.textContent;
+        if (selectedMonth === month) {
+          // Desmarca o mês se ele já estiver selecionado
+          monthElement.classList.remove("selected");
+          selectedMonth = null;
+        } else {
+          // Desmarca qualquer mês selecionado anteriormente
+          const months = document.querySelectorAll(".mes");
+          months.forEach((month) => month.classList.remove("selected"));
+          // Marca o mês selecionado
+          monthElement.classList.add("selected");
+          selectedMonth = month;
+          // Desmarca o trimestre se estiver selecionado
+          if (selectedTrimestre) {
+            const trimestre = document.querySelector(".trimestre.selected");
+            trimestre.classList.remove("selected");
+            selectedTrimestre = null;
+          }
+        }
+      }
+
+      function selectTrimestre(trimestreElement) {
+        const trimestre = trimestreElement.textContent;
+        if (selectedTrimestre === trimestre) {
+          // Desmarca o trimestre se ele já estiver selecionado
+          trimestreElement.classList.remove("selected");
+          selectedTrimestre = null;
+        } else {
+          // Desmarca qualquer trimestre selecionado anteriormente
+          const trimestres = document.querySelectorAll(".trimestre");
+          trimestres.forEach((trimestre) =>
+            trimestre.classList.remove("selected")
+          );
+          // Marca o trimestre selecionado
+          trimestreElement.classList.add("selected");
+          selectedTrimestre = trimestre;
+          // Desmarca o mês se estiver selecionado
+          if (selectedMonth) {
+            const month = document.querySelector(".mes.selected");
+            month.classList.remove("selected");
+            selectedMonth = null;
+          }
+        }
+      }
+
+      function selectYear(yearElement) {
+        const year = yearElement.value;
+        selectedYear = year;
+        // Desmarca qualquer mês ou trimestre selecionado
+        const months = document.querySelectorAll(".mes");
+        months.forEach((month) => month.classList.remove("selected"));
+        const trimestres = document.querySelectorAll(".trimestre");
+        trimestres.forEach((trimestre) =>
+          trimestre.classList.remove("selected")
+        );
+      }
+    </script>
+
+    <script id="grafico-barra">
+      document.addEventListener("DOMContentLoaded", function () {
+        var ctx = document.getElementById("chart-barra").getContext("2d");
+
+        var chartBarra = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: [
+              "Jan",
+              "Fev",
+              "Mar",
+              "Abr",
+              "Mai",
+              "Jun",
+              "Jul",
+              "Ago",
+              "Set",
+              "Out",
+              "Nov",
+              "Dez",
+            ],
+            datasets: [
+              {
+                label: "Evolução da Receita Recebida",
+                data: [
+                  600, 700, 800, 900, 1000, 950, 850, 800, 750, 700, 650, 600,
+                ],
+                backgroundColor: ["#527853d8"],
+              },
+              {
+                label: "Evolução da Inadimplência",
+                data: [
+                  400, 500, 600, 700, 800, 750, 650, 600, 550, 500, 450, 400,
+                ],
+                backgroundColor: ["#ff0000a6"],
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+          },
+        });
+      });
+    </script>
+
+    <script id="grafico-pizza">
+      document.addEventListener("DOMContentLoaded", function () {
+        var ctx = document.getElementById("chart-pizza").getContext("2d");
+
+        var chartPizza = new Chart(ctx, {
+          type: "pie",
+          data: {
+            labels: ["Receita Recebida", "Inadimplência"],
+            datasets: [
+              {
+                data: [600, 400],
+                backgroundColor: ["#527853d8", "#ff0000a6"],
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+          },
+        });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>
