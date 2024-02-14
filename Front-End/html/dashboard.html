@@ -35,9 +35,9 @@
           <i class="bi bi-pencil-square"></i>
           <a href="">Orders</a>
         </div>
-        <div class="sidebar-links">
+        <div id="notas-fiscais" class="sidebar-links">
           <i class="bi bi-archive"></i>
-          <a href="notasFiscais">Inventory</a>
+          <a href="notasFiscais.html">Inventory</a>
         </div>
         <div class="sidebar-links">
           <i class="bi bi-person"></i>
@@ -122,6 +122,9 @@
         <div class="filtro-ano">
           <label id="filtrar-por" for="filtro-ano">Ano:</label>
           <select class="ano" onchange="selectYear(this)">
+            <option value="2022">2019</option>
+            <option value="2022">2020</option>
+            <option value="2022">2021</option>
             <option value="2022">2022</option>
             <option value="2023">2023</option>
             <option value="2024">2024</option>
@@ -130,7 +133,7 @@
       </section>
 
       <section class="dashboard-indicadores">
-        <div id="dashboard-cards">
+        <div class="dashboard-cards">
           <div class="indicador-cards">
             <div class="titulo-cards">
               <i class="bi bi-card-text"></i>
@@ -188,16 +191,16 @@
           </div>
         </div>
 
-        <div id="dashboard-graficos">
-          <div class="espaco-graficos">
+        <div class="dashboard-graficos">
+          <div class="indicador-graficos">
             <span class="texto-grafico">Valores em mil R$</span>
             <div class="grafico-pizza">
-              <p class="">Filtro por: Mês Jan</p>
+              <p class="">Filtro por: Mês: Jan / Ano: 2023</p>
               <canvas id="chart-pizza"></canvas>
             </div>
           </div>
 
-          <div class="espaco-graficos">
+          <div class="indicador-graficos">
             <span class="texto-grafico">Valores em mil R$</span>
             <div class="grafico-barra">
               <canvas id="chart-barra"></canvas>
@@ -333,6 +336,9 @@
           },
           options: {
             responsive: true,
+            layout: {
+              padding: 7,
+            },
           },
         });
       });

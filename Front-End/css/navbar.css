@@ -12,6 +12,7 @@
 .navbar-titulo-pagina {
   display: flex;
   position: relative;
+  width: 130px;
   align-items: center;
   margin-left: 10px;
 }

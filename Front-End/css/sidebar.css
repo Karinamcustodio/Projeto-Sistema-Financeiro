@@ -31,9 +31,7 @@ body {
   display: flex;
   align-items: center;
   height: 50px;
-  /* margin: 12px; */
   color: var(--cor-texto-branco);
-  /* background: red; */
 }
 .nome-empresa {
   margin-left: 10px;
@@ -63,7 +61,7 @@ body {
 .sidebar-highlight {
   position: absolute;
   left: 10px;
-  top: 63px;
+  top: -50px;
   width: calc(100% - 10px);
   height: 46px;
   background: var(--cor-fundo-body);
@@ -74,41 +72,41 @@ body {
   color: var(--cor-fundo-sidebar);
 }
 .sidebar-links:nth-of-type(1):hover ~ .sidebar-highlight {
-  top: 63px;
+  top: 67px;
 }
 .sidebar-links:nth-of-type(2):hover {
   color: var(--cor-fundo-sidebar);
 }
 .sidebar-links:nth-of-type(2):hover ~ .sidebar-highlight {
-  top: 110px;
+  top: 113px;
 }
 .sidebar-links:nth-of-type(3):hover {
   color: var(--cor-fundo-sidebar);
 }
 .sidebar-links:nth-of-type(3):hover ~ .sidebar-highlight {
-  top: 157px;
+  top: 160px;
 }
 .sidebar-links:nth-of-type(4):hover {
   color: var(--cor-fundo-sidebar);
 }
 .sidebar-links:nth-of-type(4):hover ~ .sidebar-highlight {
-  top: 204px;
+  top: 207px;
 }
 .sidebar-links:nth-of-type(5):hover {
   color: var(--cor-fundo-sidebar);
 }
 .sidebar-links:nth-of-type(5):hover ~ .sidebar-highlight {
-  top: 251px;
+  top: 254px;
 }
 .sidebar-links:nth-of-type(6):hover {
   color: var(--cor-fundo-sidebar);
 }
 .sidebar-links:nth-of-type(6):hover ~ .sidebar-highlight {
-  top: 298px;
+  top: 301px;
 }
 .sidebar-links:nth-of-type(7):hover {
   color: var(--cor-fundo-sidebar);
 }
 .sidebar-links:nth-of-type(7):hover ~ .sidebar-highlight {
-  top: 345px;
+  top: 348px;
 }

@@ -1,7 +1,6 @@
 #dashboard {
   background: var(--cor-fundo-body);
   height: 46px;
-  margin-top: -1px;
   margin-left: -10px;
   padding: 10px;
   color: var(--cor-fundo-sidebar);
@@ -81,7 +80,7 @@
   left: 215px;
   height: 520px;
 }
-#dashboard-cards {
+.dashboard-cards {
   display: flex;
   position: relative;
   width: calc(100% - 30px);
@@ -120,26 +119,35 @@
 .indicador-cards:nth-child(5) {
   background: rgba(82, 120, 83, 0.849);
 }
-#dashboard-graficos {
+.dashboard-graficos {
   display: flex;
   position: relative;
   width: calc(100% - 30px);
   height: 390px;
   justify-content: space-evenly;
 }
-.espaco-graficos {
+.indicador-graficos {
   display: flex;
   position: relative;
-  justify-content: center;
   align-items: center;
 }
 .texto-grafico {
   position: relative;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  text-align: center;
-  left: 34px;
+  top: 35px;
+  left: 16px;
   font-size: 12px;
+}
+.grafico-pizza {
+  position: relative;
+  width: 350px;
+  height: 330px;
+  background: #ffffff81;
+  padding: 12px;
+  box-shadow: 10px 10px 10px rgba(58, 58, 58, 0.2);
+  border-radius: 20px;
+  margin-left: -14px;
 }
 .grafico-barra {
   position: relative;
@@ -149,15 +157,4 @@
   padding: 10px;
   box-shadow: 10px 10px 10px rgba(58, 58, 58, 0.2);
   border-radius: 20px;
-  margin: 0 15px;
-}
-.grafico-pizza {
-  position: relative;
-  width: 350px;
-  height: 330px;
-  background: #ffffff81;
-  padding: 10px;
-  box-shadow: 10px 10px 10px rgba(58, 58, 58, 0.2);
-  border-radius: 20px;
-  margin: 0 15px;
 }
