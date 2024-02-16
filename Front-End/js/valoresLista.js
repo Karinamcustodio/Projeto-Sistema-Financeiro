@@ -120,4 +120,40 @@ var dadosTabela = [
     docBoleto: 342424245,
     statusNotas: "Em atraso",
   },
+
+  // {
+  //   nome: "Ana Silva",
+  //   numeroNota: 13986,
+  //   dataEmissao: "23/10/2023",
+  //   dataCobranca: "29/11/2023",
+  //   dataPagamento: "27/11/2023",
+  //   valorNota: "R$ 38.500,00",
+  //   docNota: 2345554,
+  //   docBoleto: 342424243,
+  //   statusNotas: "Com Cobrança",
+  // },
+  // {
+  //   nome: "João Santos",
+  //   numeroNota: 13987,
+  //   dataEmissao: "24/01/2023",
+  //   dataCobranca: "28/01/2023",
+  //   dataPagamento: "26/02/2023",
+  //   valorNota: "R$ 40.000,00",
+  //   docNota: 2345555,
+  //   docBoleto: 342424244,
+  //   statusNotas: "Pago",
+  // },
+  // {
+  //   nome: "Pedro Oliveira",
+  //   numeroNota: 13988,
+  //   dataEmissao: "25/10/2023",
+  //   dataCobranca: "27/11/2023",
+  //   dataPagamento: "25/11/2023",
+  //   valorNota: "R$ 42.000,00",
+  //   docNota: 2345556,
+  //   docBoleto: 342424245,
+  //   statusNotas: "Em atraso",
+  // },
 ];
+
+export { dadosTabela };

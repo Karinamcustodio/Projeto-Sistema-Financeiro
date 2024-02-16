@@ -66,6 +66,10 @@
   font-size: 17px;
   box-shadow: 10px 10px 10px var(--cor-sombra);
 }
+.notas-fiscais-status:focus,
+.selecionar-ano:focus {
+  outline: none;
+}
 .mes.selected,
 .trimestre.selected {
   background: var(--cor-select);
@@ -160,25 +164,25 @@ tbody tr:nth-child(odd) {
 .status-pago {
   color: rgb(50, 131, 52);
 }
-.paginacao {
+.pagination {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.paginacao div {
+.pagination div {
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
 }
-.paginacao div:not(.numeros-paginas),
-.paginacao div.numeros-paginas div {
+.pagination div:not(.numbers),
+.pagination div.numbers div {
   width: 40px;
   height: 25px;
 }
-.paginacao div:not(.numeros-paginas):hover,
-.paginacao div.numeros-paginas div:hover,
-.paginacao div.numeros-paginas div:active {
+.pagination div:not(.numbers):hover,
+.pagination div.numbers div:hover,
+.pagination div.numbers div:active {
   color: var(--cor-campo-pesquisa);
 }

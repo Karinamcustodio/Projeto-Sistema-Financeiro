@@ -207,95 +207,36 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody id="tabela-linhas">
-              <tr></tr>
+            <tbody class="list" id="tabela-linhas">
+              <tr class="list"></tr>
             </tbody>
           </table>
         </div>
 
-        <div class="paginacao">
-          <div class="primeira-pagina">&#171;</div>
-          <div class="pagina-anterior">&lt;</div>
-          <div class="numeros-paginas">
-            <div class="pagina ativa">1</div>
-            <div class="pagina">2</div>
-            <div class="pagina">3</div>
+        <div class="pagination">
+          <div class="first">&#171;</div>
+          <div class="prev">&lt;</div>
+          <div class="numbers">
+            <div>1</div>
           </div>
-          <div class="proxima-pagina">&gt;</div>
-          <div class="ultima-anterior">&#187;</div>
+          <div class="next">&gt;</div>
+          <div class="last">&#187;</div>
         </div>
       </section>
     </main>
 
     <!-- ......................................................... -->
 
-    <script src="../js/selecionarMes.js"></script>
+    <!-- <script src="../js/selecionarMes.js"></script> -->
     <script src="../js/selecionarStatus.js"></script>
     <script src="../js/selecionarAno.js"></script>
 
     <script src="../js/ordenarListas.js"></script>
+    <script src="../js/paginacaoIngles.js" type="module"></script>
+    <!-- <script src="../js/paginacao.js"></script> -->
 
-    <script src="../js/obterDadosLista.js"></script>
-    <script src="../js/valoresLista.js"></script>
+    <script src="../js/obterDadosLista.js" type="module"></script>
+    <script src="../js/valoresLista.js" type="module"></script>
 
-    <script id="linhas-tabela">
-      const numRowsPerPage = 11;
-      const paginas = document.querySelectorAll(".numeros-paginas .pagina");
-      const linhas = document.querySelectorAll("#tabela-corpo tr");
-      let paginaAtual = 1;
-
-      const mostrarLinhasDaPagina = () => {
-        const inicio = (paginaAtual - 1) * numRowsPerPage;
-        const fim = inicio + numRowsPerPage;
-
-        linhas.forEach((linha, indice) => {
-          if (indice >= inicio && indice < fim) {
-            linha.style.display = "table-row";
-          } else {
-            linha.style.display = "none";
-          }
-        });
-      };
-
-      const irParaPagina = (pagina) => {
-        paginaAtual = pagina;
-        mostrarLinhasDaPagina();
-        atualizarEstadoBotoes();
-      };
-
-      const atualizarEstadoBotoes = () => {
-        paginas.forEach((pagina, indice) => {
-          if (indice + 1 === paginaAtual) {
-            pagina.classList.add("ativa");
-          } else {
-            pagina.classList.remove("ativa");
-          }
-        });
-      };
-
-      paginas.forEach((pagina, indice) => {
-        pagina.addEventListener("click", () => {
-          irParaPagina(indice + 1);
-        });
-      });
-
-      document
-        .querySelector(".pagina-anterior")
-        .addEventListener("click", () => {
-          if (paginaAtual > 1) {
-            irParaPagina(paginaAtual - 1);
-          }
-        });
-
-      document
-        .querySelector(".proxima-pagina")
-        .addEventListener("click", () => {
-          if (paginaAtual < paginas.length) {
-            irParaPagina(paginaAtual + 1);
-          }
-        });
-
-      mostrarLinhasDaPagina();
-    </script>
   </body>
 </html>
