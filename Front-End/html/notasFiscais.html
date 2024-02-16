@@ -7,13 +7,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
     />
+    <link rel="stylesheet" href="../css/principais.css" />
     <link rel="stylesheet" href="../css/sidebar.css" />
     <link rel="stylesheet" href="../css/navbar.css" />
     <link rel="stylesheet" href="../css/notasFiscais.css" />
     <title>Notas Fiscais</title>
   </head>
   <body>
-    <aside class="sidebar">
+    <aside id="sidebar">
       <div class="logo-empresa">
         <h3 class="nome-empresa">UneCont</h3>
       </div>
@@ -51,7 +52,7 @@
       </div>
     </aside>
 
-    <header class="navbar">
+    <header id="navbar">
       <div class="navbar-titulo-pagina">
         <i class="bi bi-archive"></i>
         <h3 class="nome-titulo">Inventory</h3>
@@ -70,186 +71,231 @@
       <div class="navbar-usuario">
         <img
           id="foto-perfil"
-          src="../img/foto-perfil.png"
+          src="../img/perfil-karina.jpeg"
           width="37px"
           alt="Foto perfil"
         />
         <div class="titulo-usuario">
-          <h4>John Doe</h4>
-          <span>Super admin</span>
+          <h4>Karina</h4>
+          <span>Developer</span>
         </div>
       </div>
     </header>
 
     <main>
-      <section class="notas-emitidas-filtro">
+      <section id="filtro-notas-emitidas">
         <label id="filtrar-por" for="filtro">Filtrar por:</label>
 
         <div class="filtro-mes-notas">
-          <div class="filtro-mes-emissao">
-            <label id="filtrar-por" for="filtro-mes-emissao"
-              >Data Emissão:
-            </label>
-            <div class="espaco-filtro">
-              <select class="mes" onchange="selectMonth(this)">
-                <option value="selecione">- selecione o mês -</option>
-                <option value="janeiro">Janeiro</option>
-                <option value="fevereiro">Fevereiro</option>
-                <option value="marco">Março</option>
-                <option value="abril">Abril</option>
-                <option value="maio">Maio</option>
-                <option value="junho">Junho</option>
-                <option value="julho">Julho</option>
-                <option value="agosto">Agosto</option>
-                <option value="setembro">Setembro</option>
-                <option value="outubro">Outubro</option>
-                <option value="novembro">Novembro</option>
-                <option value="dezembro">Dezembro</option>
-              </select>
-            </div>
+          <div class="filtro-mes">
+            <label for="filtro-mes">Mês:</label>
+            <div class="mes" onclick="selectMes('Jan')">Jan</div>
+            <div class="mes" onclick="selectMes('Fev')">Fev</div>
+            <div class="mes" onclick="selectMes('Mar')">Mar</div>
+            <div class="mes" onclick="selectMes('Abr')">Abr</div>
+            <div class="mes" onclick="selectMes('Mai')">Mai</div>
+            <div class="mes" onclick="selectMes('Jun')">Jun</div>
+            <div class="mes" onclick="selectMes('Jul')">Jul</div>
+            <div class="mes" onclick="selectMes('Ago')">Ago</div>
+            <div class="mes" onclick="selectMes('Set')">Set</div>
+            <div class="mes" onclick="selectMes('Out')">Out</div>
+            <div class="mes" onclick="selectMes('Nov')">Nov</div>
+            <div class="mes" onclick="selectMes('Dez')">Dez</div>
           </div>
 
-          <div class="filtro-mes-cobranca">
-            <label id="filtrar-por" for="filtro-ano">Data Cobrança: </label>
-            <div class="espaco-filtro">
-              <select class="mes" onchange="selectMonth(this)">
-                <option value="selecione">- selecione o mês -</option>
-                <option value="janeiro">Janeiro</option>
-                <option value="fevereiro">Fevereiro</option>
-                <option value="marco">Março</option>
-                <option value="abril">Abril</option>
-                <option value="maio">Maio</option>
-                <option value="junho">Junho</option>
-                <option value="julho">Julho</option>
-                <option value="agosto">Agosto</option>
-                <option value="setembro">Setembro</option>
-                <option value="outubro">Outubro</option>
-                <option value="novembro">Novembro</option>
-                <option value="dezembro">Dezembro</option>
-              </select>
+          <div class="filtro-notas">
+            <div class="notas-fiscais" onclick="selectTrimestre(this)">
+              Mês Emissão
             </div>
-          </div>
-
-          <div class="filtro-mes-pagamento">
-            <label id="filtrar-por" for="filtro-ano">Data Pagamento: </label>
-            <div class="espaco-filtro">
-              <select class="mes" onchange="selectMonth(this)">
-                <option value="selecione">- selecione o mês -</option>
-                <option value="janeiro">Janeiro</option>
-                <option value="fevereiro">Fevereiro</option>
-                <option value="marco">Março</option>
-                <option value="abril">Abril</option>
-                <option value="maio">Maio</option>
-                <option value="junho">Junho</option>
-                <option value="julho">Julho</option>
-                <option value="agosto">Agosto</option>
-                <option value="setembro">Setembro</option>
-                <option value="outubro">Outubro</option>
-                <option value="novembro">Novembro</option>
-                <option value="dezembro">Dezembro</option>
-              </select>
+            <div class="notas-fiscais" onclick="selectTrimestre(this)">
+              Mês Cobrança
             </div>
-          </div>
+            <div class="notas-fiscais" onclick="selectTrimestre(this)">
+              Mês Pagamento
+            </div>
 
-          <div class="filtro-status">
-            <label id="filtrar-por" for="filtro-ano">Status: </label>
-            <div class="espaco-filtro">
-              <select class="status" onchange="selectMonth(this)">
-                <option value="selecione">- selecione o status -</option>
-                <option value="emitida">Emitida</option>
-                <option value="cobrancaRealizada">Com Cobrança</option>
-                <option value="pagamentoAtraso">Em atraso</option>
-                <option value="pagamentoRealizado">Pago</option>
+            <div id="status-notas">
+              <select
+                class="notas-fiscais-status"
+                onchange="filtrarPorStatus(this.value)"
+              >
+                <option value="status">Status</option>
+                <option class="notas-status" value="emitida">Emitida</option>
+                <option class="notas-status" value="com-cobrança">
+                  Com Cobrança
+                </option>
+                <option class="notas-status" value="em-atraso">
+                  Em atraso
+                </option>
+                <option class="notas-status" value="pago">Pago</option>
               </select>
             </div>
           </div>
         </div>
 
         <div class="filtro-ano">
-          <label id="filtrar-por" for="filtro-ano">Ano: </label>
-          <select class="ano" onchange="selectYear(this)">
-            <option value="2022">2019</option>
-            <option value="2022">2020</option>
-            <option value="2022">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
+          <label for="filtro-ano">Ano:</label>
+          <select class="selecionar-ano" onchange="selectAno(this)">
+            <option class="ano" value="2019">2019</option>
+            <option class="ano" value="2020">2020</option>
+            <option class="ano" value="2021">2021</option>
+            <option class="ano" value="2022">2022</option>
+            <option class="ano" value="2023" selected>2023</option>
+            <option class="ano" value="2024">2024</option>
           </select>
         </div>
       </section>
 
-      <section class="notas-emitidas-lista">
-        <div class="espaco-lista">
-          <div class="lista-notas">
-            <table>
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Número Nota</th>
-                  <th>Data Emissão</th>
-                  <th>Data Cobrança</th>
-                  <th>Data Pagamento</th>
-                  <th>Valor Nota</th>
-                  <th>Doc. Nota Fiscal</th>
-                  <th>Doc. Boleto Bancário</th>
-                  <th>Status Nota</th>
-                  <th>Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Karina</td>
-                  <td>13985</td>
-                  <td>22/10/2023</td>
-                  <td>30/11/2023</td>
-                  <td>28/11/2023</td>
-                  <td>R$ 35.879,00</td>
-                  <td>2345553</td>
-                  <td>342424242</td>
-                  <td>Pagamento realizado</td>
-                  <td>Detalhes</td>
-                </tr>
-                <tr>
-                  <td>Karina</td>
-                  <td>13985</td>
-                  <td>22/10/2023</td>
-                  <td>30/11/2023</td>
-                  <td>28/11/2023</td>
-                  <td>R$ 35.879,00</td>
-                  <td>2345553</td>
-                  <td>342424242</td>
-                  <td>Pagamento realizado</td>
-                  <td>Detalhes</td>
-                </tr>
-                <tr>
-                  <td>Karina</td>
-                  <td>13985</td>
-                  <td>22/10/2023</td>
-                  <td>30/11/2023</td>
-                  <td>28/11/2023</td>
-                  <td>R$ 35.879,00</td>
-                  <td>2345553</td>
-                  <td>342424242</td>
-                  <td>Pagamento realizado</td>
-                  <td>Detalhes</td>
-                </tr>
-                <tr>
-                  <td>Karina</td>
-                  <td>13985</td>
-                  <td>22/10/2023</td>
-                  <td>30/11/2023</td>
-                  <td>28/11/2023</td>
-                  <td>R$ 35.879,00</td>
-                  <td>2345553</td>
-                  <td>342424242</td>
-                  <td>Pagamento realizado</td>
-                  <td>Detalhes</td>
-                </tr>
-              </tbody>
-            </table>
+      <section id="lista-notas-emitidas">
+        <div class="lista-notas">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Nome<span onclick="orderColumn(0, this)" class="arrow-icon"
+                    >&#x25BC;</span
+                  >
+                </th>
+                <th>
+                  Nota<span onclick="orderColumn(1, this)" class="arrow-icon"
+                    >&#x25BC;</span
+                  >
+                </th>
+                <th>
+                  Emissão<span onclick="orderColumn(2, this)" class="arrow-icon"
+                    >&#x25BC;</span
+                  >
+                </th>
+                <th>
+                  Cobrança<span
+                    onclick="orderColumn(3, this)"
+                    class="arrow-icon"
+                    >&#x25BC;</span
+                  >
+                </th>
+                <th>
+                  Pagamento<span
+                    onclick="orderColumn(4, this)"
+                    class="arrow-icon"
+                    >&#x25BC;</span
+                  >
+                </th>
+                <th>
+                  Valor<span onclick="orderColumn(5, this)" class="arrow-icon"
+                    >&#x25BC;</span
+                  >
+                </th>
+                <th>
+                  Doc. Nota<span
+                    onclick="orderColumn(6, this)"
+                    class="arrow-icon"
+                    >&#x25BC;</span
+                  >
+                </th>
+                <th>
+                  Doc. Boleto<span
+                    onclick="orderColumn(7, this)"
+                    class="arrow-icon"
+                    >&#x25BC;</span
+                  >
+                </th>
+                <th>
+                  Status<span onclick="orderColumn(8, this)" class="arrow-icon"
+                    >&#x25BC;</span
+                  >
+                </th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="tabela-linhas">
+              <tr></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="paginacao">
+          <div class="primeira-pagina">&#171;</div>
+          <div class="pagina-anterior">&lt;</div>
+          <div class="numeros-paginas">
+            <div class="pagina ativa">1</div>
+            <div class="pagina">2</div>
+            <div class="pagina">3</div>
           </div>
+          <div class="proxima-pagina">&gt;</div>
+          <div class="ultima-anterior">&#187;</div>
         </div>
       </section>
     </main>
+
+    <!-- ......................................................... -->
+
+    <script src="../js/selecionarMes.js"></script>
+    <script src="../js/selecionarStatus.js"></script>
+    <script src="../js/selecionarAno.js"></script>
+
+    <script src="../js/ordenarListas.js"></script>
+
+    <script src="../js/obterDadosLista.js"></script>
+    <script src="../js/valoresLista.js"></script>
+
+    <script id="linhas-tabela">
+      const numRowsPerPage = 11;
+      const paginas = document.querySelectorAll(".numeros-paginas .pagina");
+      const linhas = document.querySelectorAll("#tabela-corpo tr");
+      let paginaAtual = 1;
+
+      const mostrarLinhasDaPagina = () => {
+        const inicio = (paginaAtual - 1) * numRowsPerPage;
+        const fim = inicio + numRowsPerPage;
+
+        linhas.forEach((linha, indice) => {
+          if (indice >= inicio && indice < fim) {
+            linha.style.display = "table-row";
+          } else {
+            linha.style.display = "none";
+          }
+        });
+      };
+
+      const irParaPagina = (pagina) => {
+        paginaAtual = pagina;
+        mostrarLinhasDaPagina();
+        atualizarEstadoBotoes();
+      };
+
+      const atualizarEstadoBotoes = () => {
+        paginas.forEach((pagina, indice) => {
+          if (indice + 1 === paginaAtual) {
+            pagina.classList.add("ativa");
+          } else {
+            pagina.classList.remove("ativa");
+          }
+        });
+      };
+
+      paginas.forEach((pagina, indice) => {
+        pagina.addEventListener("click", () => {
+          irParaPagina(indice + 1);
+        });
+      });
+
+      document
+        .querySelector(".pagina-anterior")
+        .addEventListener("click", () => {
+          if (paginaAtual > 1) {
+            irParaPagina(paginaAtual - 1);
+          }
+        });
+
+      document
+        .querySelector(".proxima-pagina")
+        .addEventListener("click", () => {
+          if (paginaAtual < paginas.length) {
+            irParaPagina(paginaAtual + 1);
+          }
+        });
+
+      mostrarLinhasDaPagina();
+    </script>
   </body>
 </html>
