@@ -1,4 +1,4 @@
-import { dadosTabela } from "../js/valoresLista.js";
+ import { dadosTabela } from "../js/valoresLista.js"
 
 const data = dadosTabela.map((item, index) => {
   return {
@@ -13,11 +13,6 @@ const data = dadosTabela.map((item, index) => {
     statusNotas: item.statusNotas,
   };
 });
-
-console.log(data);
-
-/////////////////////////
-// const data = Array.from({ length: 100 }).map((_, i) => `Item ${i + 1}`);
 
 let perPage = 11;
 const state = {

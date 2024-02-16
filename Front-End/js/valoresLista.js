@@ -156,4 +156,4 @@ var dadosTabela = [
   // },
 ];
 
-export { dadosTabela };
+ export { dadosTabela };

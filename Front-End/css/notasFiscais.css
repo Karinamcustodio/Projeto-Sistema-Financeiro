@@ -1,188 +1,386 @@
-#notas-fiscais {
-  background: var(--cor-fundo-body);
-  height: 46px;
-  margin-left: -10px;
-  padding: 10px;
-  color: var(--cor-fundo-sidebar);
-  border: none;
-  border-radius: 25px 0 0 25px;
+@media only screen and (min-width: 1300px) {
+  #notas-fiscais {
+    background: var(--cor-fundo-body);
+    height: 46px;
+    margin-left: -10px;
+    padding: 10px;
+    color: var(--cor-fundo-sidebar);
+    border: none;
+    border-radius: 25px 0 0 25px;
+  }
+  #filtro-notas-emitidas {
+    display: flex;
+    position: relative;
+    width: var(--tamanho-width-conteudo);
+    left: 215px;
+    height: 80px;
+    padding: 5px;
+  }
+  #filtrar-por {
+    padding: 5px;
+  }
+  .filtro-mes-notas {
+    display: flex;
+    flex-direction: column;
+  }
+  .filtro-mes {
+    display: flex;
+    position: relative;
+    width: var(--tamanho-width-conteudo);
+    left: 75px;
+    height: 25px;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .mes {
+    width: 73px;
+    height: 25px;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 4px;
+    box-shadow: 10px 10px 10px var(--cor-sombra);
+  }
+  .filtro-notas {
+    display: flex;
+    position: relative;
+    width: var(--tamanho-width-conteudo);
+    left: 75px;
+    height: 25px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5px;
+  }
+  .notas-fiscais {
+    width: 159px;
+    height: 25px;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 5px;
+    box-shadow: 10px 10px 10px var(--cor-sombra);
+  }
+  .notas-fiscais-status {
+    height: 25px;
+    border: none;
+    background: var(--cor-fundo-body);
+    text-align: center;
+    align-items: end;
+    font-size: 17px;
+    box-shadow: 10px 10px 10px var(--cor-sombra);
+  }
+  .notas-fiscais-status:focus,
+  .selecionar-ano:focus {
+    outline: none;
+  }
+  .mes.selected,
+  .trimestre.selected {
+    background: var(--cor-select);
+    color: var(--cor-primaria);
+  }
+  .filtro-ano {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5px;
+    margin-left: -40px;
+  }
+  .selecionar-ano {
+    height: 27px;
+    border: none;
+    background: var(--cor-fundo-body);
+    margin-top: 5px;
+    box-shadow: 10px 10px 10px var(--cor-sombra);
+  }
+  #lista-notas-emitidas {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: calc(100% - 245px);
+    left: 215px;
+    height: 526px;
+    justify-content: space-evenly;
+    padding: 10px 30px 10px 30px;
+  }
+  .lista-notas {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 485px;
+    box-shadow: 10px 10px 10px var(--cor-sombra);
+    border: 1px solid var(--cor-tabela-thead);
+  }
+  .lista-notas table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .lista-notas th {
+    height: 37px;
+    background: var(--cor-tabela-thead);
+  }
+  .lista-notas td {
+    height: 40px;
+    font-size: 14px;
+  }
+  .lista-notas th,
+  .lista-notas td {
+    width: 170px;
+    text-align: center;
+    border-bottom: 1px solid var(--cor-tabela-thead);
+  }
+  .lista-notas tr:hover {
+    background: var(--cor-select);
+  }
+  tbody tr:nth-child(even) {
+    background: var(--cor-tabela-even);
+  }
+  tbody tr:nth-child(odd) {
+    background: var(--cor-tabela-odd);
+  }
+  .lista-notas tbody::before {
+    content: "";
+    display: table-row;
+  }
+  .lista-notas tbody::after {
+    content: "";
+    display: table-row;
+  }
+  .lista-notas tbody tr:last-child::after {
+    content: "";
+    display: table-row;
+  }
+  #arrow-icon {
+    font-size: 14px;
+  }
+  .bi-list {
+    cursor: pointer;
+  }
+  .status-emitida {
+    color: rgb(43, 108, 133);
+  }
+  .status-com-cobrança {
+    color: rgb(255, 166, 0);
+  }
+  .status-em-atraso {
+    color: rgb(255, 0, 0);
+  }
+  .status-pago {
+    color: rgb(50, 131, 52);
+  }
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pagination div {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .pagination div:not(.numbers),
+  .pagination div.numbers div {
+    width: 40px;
+    height: 25px;
+  }
+  .pagination div:not(.numbers):hover,
+  .pagination div.numbers div:hover,
+  .pagination div.numbers div:active {
+    color: var(--cor-campo-pesquisa);
+  }
 }
-#filtro-notas-emitidas {
-  display: flex;
-  position: relative;
-  width: var(--tamanho-width-conteudo);
-  left: 215px;
-  height: 80px;
-  padding: 5px;
-}
-#filtrar-por {
-  padding: 5px;
-}
-.filtro-mes-notas {
-  display: flex;
-  flex-direction: column;
-}
-.filtro-mes {
-  display: flex;
-  position: relative;
-  width: var(--tamanho-width-conteudo);
-  left: 75px;
-  height: 25px;
-  justify-content: space-around;
-  align-items: center;
-}
-.mes {
-  width: 73px;
-  height: 25px;
-  cursor: pointer;
-  text-align: center;
-  padding-top: 4px;
-  box-shadow: 10px 10px 10px var(--cor-sombra);
-}
-.filtro-notas {
-  display: flex;
-  position: relative;
-  width: var(--tamanho-width-conteudo);
-  left: 75px;
-  height: 25px;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 5px;
-}
-.notas-fiscais {
-  width: 159px;
-  height: 25px;
-  cursor: pointer;
-  text-align: center;
-  padding-top: 5px;
-  box-shadow: 10px 10px 10px var(--cor-sombra);
-}
-.notas-fiscais-status {
-  height: 25px;
-  border: none;
-  background: var(--cor-fundo-body);
-  text-align: center;
-  align-items: end;
-  font-size: 17px;
-  box-shadow: 10px 10px 10px var(--cor-sombra);
-}
-.notas-fiscais-status:focus,
-.selecionar-ano:focus {
-  outline: none;
-}
-.mes.selected,
-.trimestre.selected {
-  background: var(--cor-select);
-  color: var(--cor-primaria);
-}
-.filtro-ano {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 5px;
-  margin-left: -40px;
-}
-.selecionar-ano {
-  height: 27px;
-  border: none;
-  background: var(--cor-fundo-body);
-  margin-top: 5px;
-  box-shadow: 10px 10px 10px var(--cor-sombra);
-}
-#lista-notas-emitidas {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: calc(100% - 245px);
-  left: 215px;
-  height: 526px;
-  justify-content: space-evenly;
-  padding: 10px 30px 10px 30px;
-}
-.lista-notas {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  height: 485px;
-  box-shadow: 10px 10px 10px var(--cor-sombra);
-  border: 1px solid var(--cor-tabela-thead);
-}
-.lista-notas table {
-  border-collapse: collapse;
-  width: 100%;
-}
-.lista-notas th {
-  height: 37px;
-  background: var(--cor-tabela-thead);
-}
-.lista-notas td {
-  height: 40px;
-  font-size: 14px;
-}
-.lista-notas th,
-.lista-notas td {
-  width: 170px;
-  text-align: center;
-  border-bottom: 1px solid var(--cor-tabela-thead);
-}
-.lista-notas tr:hover {
-  background: var(--cor-select);
-}
-tbody tr:nth-child(even) {
-  background: var(--cor-tabela-even);
-}
-tbody tr:nth-child(odd) {
-  background: var(--cor-tabela-odd);
-}
-.lista-notas tbody::before {
-  content: "";
-  display: table-row;
-}
-.lista-notas tbody::after {
-  content: "";
-  display: table-row;
-}
-.lista-notas tbody tr:last-child::after {
-  content: "";
-  display: table-row;
-}
-#arrow-icon {
-  font-size: 14px;
-}
-.bi-list {
-  cursor: pointer;
-}
-.status-emitida {
-  color: rgb(43, 108, 133);
-}
-.status-com-cobrança {
-  color: rgb(255, 166, 0);
-}
-.status-em-atraso {
-  color: rgb(255, 0, 0);
-}
-.status-pago {
-  color: rgb(50, 131, 52);
-}
-.pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.pagination div {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-}
-.pagination div:not(.numbers),
-.pagination div.numbers div {
-  width: 40px;
-  height: 25px;
-}
-.pagination div:not(.numbers):hover,
-.pagination div.numbers div:hover,
-.pagination div.numbers div:active {
-  color: var(--cor-campo-pesquisa);
+@media only screen and (min-width: 1870px) {
+  #notas-fiscais {
+    background: var(--cor-fundo-body);
+    height: 46px;
+    margin-left: -10px;
+    padding: 10px;
+    color: var(--cor-fundo-sidebar);
+    border: none;
+    border-radius: 25px 0 0 25px;
+  }
+  #filtro-notas-emitidas {
+    display: flex;
+    position: relative;
+    width: var(--tamanho-width-conteudo);
+    left: 215px;
+    height: 120px;
+    padding: 5px;
+  }
+  #filtrar-por {
+    padding: 5px;
+    font-size: 17px;
+  }
+  .filtro-mes-notas {
+    display: flex;
+    flex-direction: column;
+  }
+  .filtro-mes {
+    display: flex;
+    position: relative;
+    width: var(--tamanho-width-conteudo);
+    left: 175px;
+    height: 35px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .mes {
+    width: 73px;
+    height: 25px;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 4px;
+    box-shadow: 10px 10px 10px var(--cor-sombra);
+  }
+  .filtro-notas {
+    display: flex;
+    position: relative;
+    width: var(--tamanho-width-conteudo);
+    left: 165px;
+    height: 35px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5px;
+  }
+  .notas-fiscais {
+    width: 159px;
+    height: 25px;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 5px;
+    box-shadow: 10px 10px 10px var(--cor-sombra);
+  }
+  .notas-fiscais-status {
+    height: 25px;
+    border: none;
+    background: var(--cor-fundo-body);
+    text-align: center;
+    align-items: end;
+    font-size: 17px;
+    box-shadow: 10px 10px 10px var(--cor-sombra);
+  }
+  .notas-fiscais-status:focus,
+  .selecionar-ano:focus {
+    outline: none;
+  }
+  .mes.selected,
+  .trimestre.selected {
+    background: var(--cor-select);
+    color: var(--cor-primaria);
+  }
+  .filtro-ano {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5px;
+    margin-left: 200px;
+    font-size: 17px;
+  }
+  .selecionar-ano {
+    height: 37px;
+    border: none;
+    background: var(--cor-fundo-body);
+    margin-top: 5px;
+    box-shadow: 10px 10px 10px var(--cor-sombra);
+  }
+  #lista-notas-emitidas {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: calc(100% - 408px);
+    left: 215px;
+    height: 786px;
+    justify-content: space-evenly;
+    padding: 10px 30px 10px 30px;
+  }
+  .lista-notas {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 685px;
+    box-shadow: 10px 10px 10px var(--cor-sombra);
+    border: 1px solid var(--cor-tabela-thead);
+    margin-left: 45px;
+  }
+  .lista-notas table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .lista-notas th {
+    height: 47px;
+    background: var(--cor-tabela-thead);
+    font-size: 20px;
+  }
+  .lista-notas td {
+    height: 57px;
+    font-size: 14px;
+    font-size: 17px;
+  }
+  .lista-notas th,
+  .lista-notas td {
+    width: 170px;
+    text-align: center;
+    border-bottom: 1px solid var(--cor-tabela-thead);
+  }
+  .lista-notas tr:hover {
+    background: var(--cor-select);
+  }
+  tbody tr:nth-child(even) {
+    background: var(--cor-tabela-even);
+  }
+  tbody tr:nth-child(odd) {
+    background: var(--cor-tabela-odd);
+  }
+  .lista-notas tbody::before {
+    content: "";
+    display: table-row;
+  }
+  .lista-notas tbody::after {
+    content: "";
+    display: table-row;
+  }
+  .lista-notas tbody tr:last-child::after {
+    content: "";
+    display: table-row;
+  }
+  #arrow-icon {
+    font-size: 14px;
+  }
+  .bi-list {
+    cursor: pointer;
+  }
+  .status-emitida {
+    color: rgb(43, 108, 133);
+  }
+  .status-com-cobrança {
+    color: rgb(255, 166, 0);
+  }
+  .status-em-atraso {
+    color: rgb(255, 0, 0);
+  }
+  .status-pago {
+    color: rgb(50, 131, 52);
+  }
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pagination div {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .pagination div:not(.numbers),
+  .pagination div.numbers div {
+    width: 40px;
+    height: 25px;
+  }
+  .pagination div:not(.numbers):hover,
+  .pagination div.numbers div:hover,
+  .pagination div.numbers div:active {
+    color: var(--cor-campo-pesquisa);
+  }
 }
