@@ -26,14 +26,14 @@ O projeto consiste na criação de uma página web que servirá como uma tela do
 
 ### Layout Dashboard
 
-<p align="center"> 
-<img alt="Tela Dashboard" src="/img/Dashboard.jpeg">
+<p align="center">
+  <img alt="Tela Dashboard" src="https://github.com/Karinamcustodio/Projeto-Sistema-Financeiro/blob/master/Front-End/img/Dashboard.jpeg">
 </p>
 
-### Layout Lista de nNotas
+### Layout Lista de Notas
 
 <p align="center">
-<img alt="Tela Dashboard" src="/img/ListaNotas.jpeg">
+<img alt="Tela Lista de Notas" src="https://github.com/Karinamcustodio/Projeto-Sistema-Financeiro/blob/master/Front-End/img/ListaNotas.jpeg">
 </p>
 
 ## 🛠 Tecnologias
