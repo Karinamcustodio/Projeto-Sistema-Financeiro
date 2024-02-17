@@ -7,7 +7,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="../css/principais.css" />
+    <link rel="stylesheet" href="../css/_principal.css" />
     <link rel="stylesheet" href="../css/sidebar.css" />
     <link rel="stylesheet" href="../css/navbar.css" />
     <link rel="stylesheet" href="../css/notasFiscais.css" />
@@ -101,7 +101,7 @@
             <div class="mes" onclick="selectMes('Out')">Out</div>
             <div class="mes" onclick="selectMes('Nov')">Nov</div>
             <div class="mes" onclick="selectMes('Dez')">Dez</div>
-          </div>
+          </div>          
 
           <div class="filtro-notas">
             <div class="notas-fiscais" onclick="selectTrimestre(this)">
@@ -152,64 +152,49 @@
             <thead>
               <tr>
                 <th>
-                  Nome<span onclick="orderColumn(0, this)" class="arrow-icon"
-                    >&#x25BC;</span
-                  >
+                  Nome<span onclick="orderColumn(0, this)" 
+                  class="arrow-icon">&#x25BC;</span>
                 </th>
                 <th>
-                  Nota<span onclick="orderColumn(1, this)" class="arrow-icon"
-                    >&#x25BC;</span
-                  >
+                  Nota<span onclick="orderColumn(1, this)" 
+                  class="arrow-icon">&#x25BC;</span>
                 </th>
                 <th>
-                  Emissão<span onclick="orderColumn(2, this)" class="arrow-icon"
-                    >&#x25BC;</span
-                  >
+                  Emissão<span onclick="orderColumn(2, this)" 
+                  class="arrow-icon">&#x25BC;</span>
                 </th>
                 <th>
                   Cobrança<span
                     onclick="orderColumn(3, this)"
-                    class="arrow-icon"
-                    >&#x25BC;</span
-                  >
+                    class="arrow-icon">&#x25BC;</span>
                 </th>
                 <th>
                   Pagamento<span
                     onclick="orderColumn(4, this)"
-                    class="arrow-icon"
-                    >&#x25BC;</span
-                  >
+                    class="arrow-icon">&#x25BC;</span>
                 </th>
                 <th>
-                  Valor<span onclick="orderColumn(5, this)" class="arrow-icon"
-                    >&#x25BC;</span
-                  >
+                  Valor<span onclick="orderColumn(5, this)" 
+                  class="arrow-icon">&#x25BC;</span>
                 </th>
                 <th>
                   Doc. Nota<span
                     onclick="orderColumn(6, this)"
-                    class="arrow-icon"
-                    >&#x25BC;</span
-                  >
+                    class="arrow-icon">&#x25BC;</span>
                 </th>
                 <th>
                   Doc. Boleto<span
                     onclick="orderColumn(7, this)"
-                    class="arrow-icon"
-                    >&#x25BC;</span
-                  >
+                    class="arrow-icon">&#x25BC;</span>
                 </th>
                 <th>
-                  Status<span onclick="orderColumn(8, this)" class="arrow-icon"
-                    >&#x25BC;</span
-                  >
+                  Status<span onclick="orderColumn(8, this)" 
+                  class="arrow-icon">&#x25BC;</span>
                 </th>
                 <th></th>
               </tr>
             </thead>
-            <tbody class="list" id="tabela-linhas">
-              
-            </tbody>
+            <tbody class="list" id="tabela-linhas"></tbody>
           </table>
         </div>
 
@@ -225,17 +210,15 @@
       </section>
     </main>
 
-    <!-- ......................................................... -->
+    <script src="../js/filtroMesLista.js"></script>
+    <script src="../js/filtroAno.js"></script>
+    <script src="../js/filtroStatus.js"></script>
 
-    <!-- <script src="../js/selecionarMes.js"></script> -->
-    <script src="../js/selecionarStatus.js"></script>
-    <script src="../js/selecionarAno.js"></script>
+    <script src="../js/paginacao.js" type="module"></script>
 
-    <script src="../js/ordenarListas.js"></script>
-    <script src="../js/paginacaoIngles.js" type="module"></script>
+    <script src="../js/listaOrdenar.js"></script>
 
-    <script src="../js/obterDadosLista.js" type="module"></script>
+    <script src="../js/listaObterDados.js" type="module"></script>
     <script src="../js/valoresLista.js" type="module"></script>
-
   </body>
 </html>
