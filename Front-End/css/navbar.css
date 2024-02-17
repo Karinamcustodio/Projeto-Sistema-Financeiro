@@ -1,0 +1,60 @@
+#navbar {
+  display: flex;
+  position: relative;
+  width: calc(100% - 215px);
+  min-width: 535px;
+  left: 215px;
+  height: 50px;
+  background: var(--cor-primaria);
+  justify-content: space-between;
+  padding: 7px;
+}
+.navbar-titulo-pagina {
+  display: flex;
+  position: relative;
+  width: 130px;
+  align-items: center;
+  margin-left: 10px;
+}
+.nome-titulo {
+  margin-left: 10px;
+}
+.navbar-pesquisa {
+  display: flex;
+  position: relative;
+  width: 200px;
+}
+#pesquisar {
+  width: 100%;
+  border-radius: 25px;
+  border: 1px solid var(--cor-borda-pesquisa);
+  background: var(--cor-primaria);
+  padding: 8px 16px 8px 40px;
+}
+.bi-search {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%) scaleX(-1);
+  cursor: pointer;
+}
+#pesquisar:focus {
+  outline: none;
+}
+.navbar-usuario {
+  display: flex;
+  width: 190px;
+  justify-content: center;
+  align-items: center;
+}
+#foto-perfil {
+  border-radius: 50%;
+  border: none;
+}
+.titulo-usuario h4,
+.titulo-usuario span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}

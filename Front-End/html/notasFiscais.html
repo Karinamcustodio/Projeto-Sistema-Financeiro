@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/_principal.css" />
+    <link rel="stylesheet" href="../css/sidebar.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/notasFiscais.css" />
+    <title>Notas Fiscais</title>
+  </head>
+  <body>
+    <aside id="sidebar">
+      <div class="logo-empresa">
+        <h3 class="nome-empresa">UneCont</h3>
+      </div>
+
+      <div class="conteudo-sidebar">
+        <div id="dashboard" class="sidebar-links">
+          <i class="bi bi-bar-chart-line"></i>
+          <a href="dashboard.html">Dashboard</a>
+        </div>
+        <div class="sidebar-links">
+          <i class="bi bi-people"></i>
+          <a href="">Customers</a>
+        </div>
+        <div class="sidebar-links">
+          <i class="bi bi-journal-text"></i>
+          <a href="">Projects</a>
+        </div>
+        <div class="sidebar-links">
+          <i class="bi bi-pencil-square"></i>
+          <a href="">Orders</a>
+        </div>
+        <div id="notas-fiscais" class="sidebar-links">
+          <i class="bi bi-archive"></i>
+          <a href="notasFiscais.html">Inventory</a>
+        </div>
+        <div class="sidebar-links">
+          <i class="bi bi-person"></i>
+          <a href="">Accounts</a>
+        </div>
+        <div class="sidebar-links">
+          <i class="bi bi-clipboard-check"></i>
+          <a href="">Tasks</a>
+        </div>
+        <div class="sidebar-highlight"></div>
+      </div>
+    </aside>
+
+    <header id="navbar">
+      <div class="navbar-titulo-pagina">
+        <i class="bi bi-archive"></i>
+        <h3 class="nome-titulo">Inventory</h3>
+      </div>
+
+      <div class="navbar-pesquisa">
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <input
+          type="text"
+          id="pesquisar"
+          name="pesquisar"
+          placeholder="search here"
+        />
+      </div>
+
+      <div class="navbar-usuario">
+        <img
+          id="foto-perfil"
+          src="../img/perfil-karina.jpeg"
+          width="37px"
+          alt="Foto perfil"
+        />
+        <div class="titulo-usuario">
+          <h4>Karina</h4>
+          <span>Developer</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="filtro-notas-emitidas">
+        <label id="filtrar-por" for="filtro">Filtrar por:</label>
+
+        <div class="filtro-mes-notas">
+          <div class="filtro-mes">
+            <label for="filtro-mes">Mês:</label>
+            <div class="mes" onclick="selectMes('Jan')">Jan</div>
+            <div class="mes" onclick="selectMes('Fev')">Fev</div>
+            <div class="mes" onclick="selectMes('Mar')">Mar</div>
+            <div class="mes" onclick="selectMes('Abr')">Abr</div>
+            <div class="mes" onclick="selectMes('Mai')">Mai</div>
+            <div class="mes" onclick="selectMes('Jun')">Jun</div>
+            <div class="mes" onclick="selectMes('Jul')">Jul</div>
+            <div class="mes" onclick="selectMes('Ago')">Ago</div>
+            <div class="mes" onclick="selectMes('Set')">Set</div>
+            <div class="mes" onclick="selectMes('Out')">Out</div>
+            <div class="mes" onclick="selectMes('Nov')">Nov</div>
+            <div class="mes" onclick="selectMes('Dez')">Dez</div>
+          </div>          
+
+          <div class="filtro-notas">
+            <div class="notas-fiscais" onclick="selectTrimestre(this)">
+              Mês Emissão
+            </div>
+            <div class="notas-fiscais" onclick="selectTrimestre(this)">
+              Mês Cobrança
+            </div>
+            <div class="notas-fiscais" onclick="selectTrimestre(this)">
+              Mês Pagamento
+            </div>
+
+            <div id="status-notas">
+              <select
+                class="notas-fiscais-status"
+                onchange="filtrarPorStatus(this.value)"
+              >
+                <option value="status">Status</option>
+                <option class="notas-status" value="emitida">Emitida</option>
+                <option class="notas-status" value="com-cobrança">
+                  Com Cobrança
+                </option>
+                <option class="notas-status" value="em-atraso">
+                  Em atraso
+                </option>
+                <option class="notas-status" value="pago">Pago</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="filtro-ano">
+          <label for="filtro-ano">Ano:</label>
+          <select class="selecionar-ano" onchange="selectAno(this)">
+            <option class="ano" value="2019">2019</option>
+            <option class="ano" value="2020">2020</option>
+            <option class="ano" value="2021">2021</option>
+            <option class="ano" value="2022">2022</option>
+            <option class="ano" value="2023" selected>2023</option>
+            <option class="ano" value="2024">2024</option>
+          </select>
+        </div>
+      </section>
+
+      <section id="lista-notas-emitidas">
+        <div class="lista-notas">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Nome<span onclick="orderColumn(0, this)" 
+                  class="arrow-icon">&#x25BC;</span>
+                </th>
+                <th>
+                  Nota<span onclick="orderColumn(1, this)" 
+                  class="arrow-icon">&#x25BC;</span>
+                </th>
+                <th>
+                  Emissão<span onclick="orderColumn(2, this)" 
+                  class="arrow-icon">&#x25BC;</span>
+                </th>
+                <th>
+                  Cobrança<span
+                    onclick="orderColumn(3, this)"
+                    class="arrow-icon">&#x25BC;</span>
+                </th>
+                <th>
+                  Pagamento<span
+                    onclick="orderColumn(4, this)"
+                    class="arrow-icon">&#x25BC;</span>
+                </th>
+                <th>
+                  Valor<span onclick="orderColumn(5, this)" 
+                  class="arrow-icon">&#x25BC;</span>
+                </th>
+                <th>
+                  Doc. Nota<span
+                    onclick="orderColumn(6, this)"
+                    class="arrow-icon">&#x25BC;</span>
+                </th>
+                <th>
+                  Doc. Boleto<span
+                    onclick="orderColumn(7, this)"
+                    class="arrow-icon">&#x25BC;</span>
+                </th>
+                <th>
+                  Status<span onclick="orderColumn(8, this)" 
+                  class="arrow-icon">&#x25BC;</span>
+                </th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class="list" id="tabela-linhas"></tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <div class="first">&#171;</div>
+          <div class="prev">&lt;</div>
+          <div class="numbers">
+            <div>1</div>
+          </div>
+          <div class="next">&gt;</div>
+          <div class="last">&#187;</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/filtroMesLista.js"></script>
+    <script src="../js/filtroAno.js"></script>
+    <script src="../js/filtroStatus.js"></script>
+
+    <script src="../js/paginacao.js" type="module"></script>
+
+    <script src="../js/listaOrdenar.js"></script>
+
+    <script src="../js/listaObterDados.js" type="module"></script>
+    <script src="../js/valoresLista.js" type="module"></script>
+  </body>
+</html>
