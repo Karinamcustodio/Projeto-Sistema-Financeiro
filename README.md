@@ -38,15 +38,13 @@ O projeto consiste na criação de uma página web que servirá como uma tela do
 
 ## 🛠 Tecnologias
 
-Foram uutilizadas as seguintes ferramentas na construção do projeto:
+Foram utilizadas as seguintes ferramentas na construção do projeto:
 
 - HTML (responsivo em tamanhos de no mínimo 1300px e 1870px)
 - CSS
 - JAVASCRIPT
 
 ## 🚀 Instruções básicas para executar o projeto
-
-Antes de começar, é bom ter um editor para trabalhar com o código como VSCode
 
 ### 🧭 Rodando a aplicação web (Front End)
 
@@ -61,17 +59,18 @@ $ git clone https://github.com/Karinamcustodio/Projeto-Sistema-Financeiro
 
 Na aplicação poderá filtrar pelos meses e pelo trimestre, e verá os valores sendo alterados nos indicadores.
 
-Além de visualizar os graficos
+Além de visualizar os gráficos
 
 ```bash
 # na sidebar clicar em Inventory
-
+# para executar a aplicação notasFiscais.html
 ```
 
-Na aplicação mostrará a lista de notas com as informações necessarias.
+Na aplicação mostrará a lista de notas com as informações necessárias, com as ordenações.
 
 ## 📝 Desenvolvedor
 
 Feito por Karina Moreira Custódio 👋🏽 [Entre em contato!](https://www.linkedin.com/in/karina-moreira-custodio)
+
 
 <p align="center">em construção... 🚧</p>
